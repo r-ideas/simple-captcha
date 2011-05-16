@@ -35,6 +35,9 @@ on the version of rails your application is using.
 
   rake db:migrate
 
+==Memo
+  check config.action_dispatch.x_sendfile_header option in production enviroment
+
 ==Usage
 
 ===Controller Based

@@ -14,7 +14,7 @@ module SimpleCaptcha
 		  #   <%= form.simple_captcha :label => "Enter numbers.." %>
 		  # <% end %>
 		  #
-		  def simple_captcha(options = {})
+      def simple_captcha(options = {})
       	options.update :object => @object_name
       	show_simple_captcha(objectify_options(options))
       end
@@ -26,7 +26,7 @@ module SimpleCaptcha
         end
         
         def simple_captcha_field(options={})
-          text_field(:captcha, :value => '', :autocomplete => 'off') +
+          text_field(:captcha, :value => '', :autocomplete => 'off', :placeholder => options[:placeholder]) +
           hidden_field(:captcha_key, {:value => options[:field_value]})
         end
     end
