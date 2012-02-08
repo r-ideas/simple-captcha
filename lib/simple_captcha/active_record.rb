@@ -50,11 +50,9 @@ module SimpleCaptcha #:nodoc
     module InstanceMethods
 
       def valid_with_captcha?
-        if RAILS_ENV == 'test'
-          [valid?].all?
-        else
-          [valid?, is_captcha_valid?].all?
-        end
+        checks = [valid?]
+        checks << is_captcha_valid? if RAILS_ENV == 'test'
+        checks.all?
       end
 
       def is_captcha_valid?
