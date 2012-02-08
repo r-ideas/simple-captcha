@@ -51,7 +51,7 @@ module SimpleCaptcha #:nodoc
 
       def valid_with_captcha?
         checks = [valid?]
-        checks << is_captcha_valid? if ::Rails.env.test?
+        checks << is_captcha_valid? unless ::Rails.env.test?
         checks.all?
       end
 
